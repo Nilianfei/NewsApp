@@ -18,7 +18,7 @@ import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private List<News> mNewsList;
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView title;
         TextView info;
@@ -30,9 +30,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             info = (TextView)view.findViewById(R.id.view);
         }
     }
-    public RecyclerAdapter() {
-        super();
-    }
+
     public RecyclerAdapter(List<News> mNewsList) {
         this.mNewsList=mNewsList;
     }

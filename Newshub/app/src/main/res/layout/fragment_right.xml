@@ -33,19 +33,19 @@
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <com.example.al.newshub.JudgeNestedScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:id="@+id/nestedScrollView">
-
-        <com.example.al.newshub.WrapContentHeightViewPager
+        android:orientation="vertical"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:nestedScrollingEnabled="false">
+            android:layout_height="match_parent">
 
-        </com.example.al.newshub.WrapContentHeightViewPager>
-    </com.example.al.newshub.JudgeNestedScrollView>
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

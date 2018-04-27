@@ -8,24 +8,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.example.al.newshub.Adapter.RecyclerAdapter;
 import com.example.al.newshub.News;
 import com.example.al.newshub.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class List_Fragment extends Fragment {
+public class List_Fragment_2 extends Fragment {
 
     private List<News> newsList =new ArrayList<>();
-    public List_Fragment() {
+    private static List_Fragment_2 instance;
+    public static List_Fragment_2 newInstance() {
+        if(instance==null){
+            instance=new List_Fragment_2();
+        }
+        return instance;
+    }
+    public List_Fragment_2() {
         // Required empty public constructor
     }
 

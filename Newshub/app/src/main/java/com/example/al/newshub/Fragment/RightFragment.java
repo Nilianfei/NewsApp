@@ -5,16 +5,13 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.al.newshub.Adapter.FragAdapter;
-import com.example.al.newshub.JudgeNestedScrollView;
+import com.example.al.newshub.Adapter.MyViewPagerAdapter;
 import com.example.al.newshub.R;
-import com.example.al.newshub.WrapContentHeightViewPager;
 
 
 /**
@@ -24,8 +21,9 @@ public class RightFragment extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private FragAdapter fragAdapter;
+    private MyViewPagerAdapter mViewPagerAdapter;
     private View view;
+    private static int[] scrollY={0,0};
     public RightFragment() {
         // Required empty public constructor
     }
@@ -37,9 +35,12 @@ public class RightFragment extends Fragment {
         view=inflater.inflate(R.layout.fragment_right,container,false);
 
         tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-        viewPager = (WrapContentHeightViewPager) view.findViewById(R.id.viewPager);
-        fragAdapter = new FragAdapter(getActivity().getSupportFragmentManager());
-        viewPager.setAdapter(fragAdapter);
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+
+        mViewPagerAdapter =new MyViewPagerAdapter(getActivity().getSupportFragmentManager());
+        mViewPagerAdapter.addFragment(List_Fragment_1.newInstance(),"tab1");
+        mViewPagerAdapter.addFragment(List_Fragment_2.newInstance(),"tab2");
+        viewPager.setAdapter(mViewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
         initViewPager();
@@ -57,7 +58,7 @@ public class RightFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                ((JudgeNestedScrollView)view.findViewById(R.id.nestedScrollView)).scrollTo(0,0);
+
             }
 
             @Override
